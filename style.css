@@ -508,7 +508,6 @@ footer {
     font-size: 0.9rem;
 }
 
-/* Responsive Styles */
 @media (max-width: 1200px) {
     .hero-content {
         flex-direction: column-reverse;
@@ -595,7 +594,6 @@ footer {
     }
 }
 
-/* Add to your style.css */
 .form-message {
     padding: 15px;
     margin-bottom: 20px;
