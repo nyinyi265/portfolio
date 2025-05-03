@@ -22,13 +22,31 @@ body {
     line-height: 1.6;
 }
 
-body {
-    transition: background-color 0.5s ease, color 0.3s ease;
+body::before {
+    content: '';
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, var(--primary-color) 0%, transparent 70%);
+    opacity: 0.1;
+    z-index: -1;
+    animation: float 15s infinite alternate ease-in-out;
 }
 
-.project-card,
-.tech-category {
-    transition: background 0.5s ease, border-color 0.5s ease;
+@keyframes float {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(-5%, -5%);
+    }
+
+    100% {
+        transform: translate(5%, 5%);
+    }
 }
 
 a {
@@ -692,4 +710,42 @@ footer {
 .tech-item span {
     font-size: 0.9rem;
     text-align: center;
+}
+
+.animated-text {
+    display: inline-block;
+    position: relative;
+}
+
+.animated-text::after {
+    content: '|';
+    position: absolute;
+    right: -8px;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn:hover::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    animation: pulse 1.5s infinite;
 }

@@ -11,6 +11,7 @@
     <link rel="icon" href="images/favicon.png" type="image/png">
     <title>Nyi Nyi Myat - Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -40,7 +41,7 @@
                     <img src="images/nyi.png" alt="Profile Picture">
                 </div>
                 <div class="hero-text">
-                    <h1>Hello, I'm <span>Nyi Nyi Myat</span></h1>
+                    <h1>Hello, I'm <span class="animated-text">Nyi Nyi Myat</span></h1>
                     <p>A creative developer crafting beautiful digital experiences with passion and precision.</p>
                     <div class="hero-btns">
                         <a href="#projects" class="btn">View Projects</a>
@@ -55,7 +56,6 @@
         </div>
     </section>
 
-    <!-- About Section -->
     <section id="about">
         <div class="container">
             <div class="about-content">
@@ -86,8 +86,9 @@
                     </div>
 
                     <!-- resume download -->
-                    <a href="/images/Nyi Nyi Myat - Resume.pdf" download="NyiNyiMyat-Resume.pdf" class="btn">
-                        <i class="fas fa-download"></i> Download Resume
+                    <a href="/images/Nyi Nyi Myat - Resume.pdf" download="NyiNyiMyat-Resume.pdf" class="btn sparkle-btn">
+                        <i class=" fas fa-download"></i> Download Resume
+                        <span class="sparkle-container"></span>
                     </a>
                 </div>
             </div>
@@ -373,6 +374,7 @@
     </footer>
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
     <script>
         const menuToggle = document.querySelector('.menu-toggle');
@@ -449,6 +451,20 @@
                     submitBtn.disabled = false;
                     submitBtn.textContent = 'Send Message';
                 });
+        });
+
+        const sections = document.querySelectorAll('section');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate__animated', 'animate__fadeInUp');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        sections.forEach(section => {
+            observer.observe(section);
         });
     </script>
 </body>
